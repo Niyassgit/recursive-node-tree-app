@@ -34,4 +34,43 @@ export class NodeController {
       next(error);
     }
   };
+
+  getTree = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const tree = await nodeService.getTree();
+      res.status(200).json({
+        success: true,
+        data: tree,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  updateNode = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = req.params.id as string;
+      const { name, parentId } = req.body;
+      const updatedNode = await nodeService.updateNode(id, name, parentId);
+      res.status(200).json({
+        success: true,
+        data: updatedNode,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  deleteNode = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = req.params.id as string;
+      await nodeService.deleteNode(id);
+      res.status(200).json({
+        success: true,
+        message: "Node and its descendants deleted successfully",
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
