@@ -14,9 +14,6 @@ export class NodeRepository {
     return await Node.findById(id);
   }
 
-  async deleteMany(filter: any): Promise<void> {
-    await Node.deleteMany(filter);
-  }
 
   async deleteById(id: string): Promise<void> {
     await Node.findByIdAndDelete(id);

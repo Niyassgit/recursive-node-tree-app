@@ -1,11 +1,16 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
-    "rootDir": "./src",
-    "outDir": "./dist",
+   "compilerOptions": {
+    "target": "ES2020",
+    "module": "node16",
+    "rootDir": "src",
+    "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node16",
+    "allowArbitraryExtensions": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules","eslint.config.ts"]
 }

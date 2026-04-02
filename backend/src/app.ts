@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import nodeRoutes from "./routes/node.routes";
+import { globalErrorHandler } from "./middlewares/error";
 
 dotenv.config();
 
@@ -15,5 +16,8 @@ app.use("/api/nodes", nodeRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+
+
+app.use(globalErrorHandler);
 
 export default app;

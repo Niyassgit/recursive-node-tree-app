@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { NodeRepository } from "../repositories/node.repository";
 import { INode } from "../models/node.model";
 
@@ -7,7 +8,7 @@ export class NodeService {
   async createNode(name: string, parentId?: string): Promise<INode> {
     return await nodeRepository.create({
       name,
-      parentId: parentId ? (parentId as any) : null,
+      parentId: parentId ? new mongoose.Types.ObjectId(parentId) : null,
     });
   }
 
