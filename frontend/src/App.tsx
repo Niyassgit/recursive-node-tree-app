@@ -1,8 +1,12 @@
 import React from "react";
-import Home from "./pages/Home";
+import TreePage from "./pages/TreePage";
 
-const App = () => {
-  return <Home />;
+const App: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-[#f4f6f9]">
+      <TreePage />
+    </div>
+  );
 };
 
 export default App;
